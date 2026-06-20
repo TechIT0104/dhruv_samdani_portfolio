@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 
 const LINKS = [
-  ['origin', 'Origin'],
-  ['powers', 'Powers'],
-  ['bounties', 'Bounties'],
-  ['claimed', 'Claimed'],
-  ['log', 'The Log'],
+  ['origin', 'About'],
+  ['powers', 'Skills'],
+  ['bounties', 'Projects'],
+  ['claimed', 'Achievements'],
+  ['log', 'Gallery'],
   ['denden', 'Contact'],
 ]
 

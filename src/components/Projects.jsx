@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion'
 import { projects } from '../data'
-import { Section, Chapter, Tilt, Boom, accent } from './ui'
+import { Section, Chapter, Tilt, accent } from './ui'
 import { GitHubIcon, ExternalIcon } from './icons'
-
-const BOOMS = ['POW!', 'BANG!', 'DON!', 'BOOM!', 'WHAM!', 'ZAP!', 'KABOOM!']
 
 function ProjectCard({ p, i }) {
   const a = accent(p.accent)
@@ -16,8 +14,6 @@ function ProjectCard({ p, i }) {
     >
       <Tilt className="h-full">
         <article className="group panel-white relative flex h-full flex-col overflow-hidden p-0">
-          <Boom word={BOOMS[i % BOOMS.length]} color={p.accent} className="-right-2 -top-3 rotate-12" />
-
           {/* header band */}
           <div className={`flex items-start justify-between gap-3 border-b-[3px] border-ink ${a.bg} ${a.text} px-5 py-3`}>
             <div>
@@ -91,7 +87,7 @@ export default function Projects() {
 
   return (
     <Section id="bounties">
-      <Chapter no="03" kicker="Most Wanted" title="The Bounties" color="blood" />
+      <Chapter no="03" kicker="Most Wanted" title="Projects" color="blood" />
 
       <div className="grid gap-6 md:grid-cols-2">
         {featured.map((p, i) => (
@@ -99,14 +95,14 @@ export default function Projects() {
         ))}
       </div>
 
-      <GroupLabel color="ocean">More Hauls</GroupLabel>
+      <GroupLabel color="ocean">More Projects</GroupLabel>
       <div className="grid gap-6 md:grid-cols-2">
         {more.map((p, i) => (
           <ProjectCard key={p.title} p={p} i={i} />
         ))}
       </div>
 
-      <GroupLabel color="gold">Boss Battles · Hackathons</GroupLabel>
+      <GroupLabel color="gold">Hackathons</GroupLabel>
       <div className="grid gap-6 md:grid-cols-2">
         {hackathon.map((p, i) => (
           <ProjectCard key={p.title} p={p} i={i} />

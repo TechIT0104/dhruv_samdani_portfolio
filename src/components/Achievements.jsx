@@ -7,7 +7,7 @@ const COLORS = ['blood', 'gold', 'ocean', 'hero', 'blood', 'gold']
 export default function Achievements() {
   return (
     <Section id="claimed">
-      <Chapter no="04" kicker="Trophies & Wins" title="Bounties Claimed" color="hero" />
+      <Chapter no="04" kicker="Trophies & Wins" title="Achievements" color="hero" />
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {achievements.map((a, i) => {

@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 import { profile, socials } from '../data'
 import { Tilt } from './ui'
 import { GitHubIcon, LinkedInIcon, CodeIcon, MailIcon, DownloadIcon, ArrowDownIcon } from './icons'
@@ -26,61 +26,15 @@ function useTypewriter(words, speed = 85, pause = 1500) {
   return text
 }
 
-function useCountUp(target, ms = 1600) {
-  const [n, setN] = useState(0)
-  useEffect(() => {
-    let raf
-    const start = performance.now()
-    const tick = (t) => {
-      const p = Math.min((t - start) / ms, 1)
-      const eased = 1 - Math.pow(1 - p, 3)
-      setN(Math.floor(eased * target))
-      if (p < 1) raf = requestAnimationFrame(tick)
-    }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [target, ms])
-  return n
-}
-
 export default function Hero() {
   const role = useTypewriter(profile.roles)
-  const bounty = useCountUp(profile.bounty)
   const [photoOk, setPhotoOk] = useState(Boolean(profile.photo))
 
-  // Mouse parallax for floating decorations.
-  const mx = useMotionValue(0)
-  const my = useMotionValue(0)
-  const sx = useSpring(mx, { stiffness: 60, damping: 18 })
-  const sy = useSpring(my, { stiffness: 60, damping: 18 })
-  const onMouse = (e) => {
-    const w = window.innerWidth,
-      h = window.innerHeight
-    mx.set((e.clientX / w - 0.5) * 2)
-    my.set((e.clientY / h - 0.5) * 2)
-  }
   return (
-    <section
-      id="top"
-      onMouseMove={onMouse}
-      className="relative flex min-h-screen items-center overflow-hidden px-5 pb-16 pt-28 sm:px-8"
-    >
-      {/* speed-line burst + halftone wash */}
-      <div className="speedlines pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[160vmax] w-[160vmax] -translate-x-1/2 -translate-y-1/2 animate-[spin_60s_linear_infinite]" />
+    <section id="top" className="relative flex min-h-screen items-center overflow-hidden px-5 pb-16 pt-28 sm:px-8">
+      {/* speed-line burst + halftone wash (full-bleed background only — never overlaps content) */}
+      <div className="speedlines pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[160vmax] w-[160vmax] -translate-x-1/2 -translate-y-1/2 animate-[spin_70s_linear_infinite]" />
       <div className="halftone pointer-events-none absolute inset-0 -z-10" />
-
-      {/* floating comic decorations */}
-      <motion.div style={{ x: sx, y: sy }} className="pointer-events-none absolute left-[6%] top-[22%] -z-10">
-        <div className="h-16 w-16 animate-floaty rounded-full border-[3px] border-ink bg-gold shadow-comic" />
-      </motion.div>
-      <motion.div style={{ x: sy, y: sx }} className="pointer-events-none absolute right-[8%] top-[16%] -z-10">
-        <div className="h-10 w-10 rotate-12 animate-wobble border-[3px] border-ink bg-ocean shadow-comic" />
-      </motion.div>
-      <motion.div style={{ x: sx, y: sx }} className="pointer-events-none absolute bottom-[14%] left-[14%] -z-10">
-        <span className="font-bangers text-5xl text-blood drop-shadow-ink" style={{ WebkitTextStroke: '2px #1a1410' }}>
-          DON!!
-        </span>
-      </motion.div>
 
       <div className="mx-auto grid w-full max-w-6xl items-center gap-10 md:grid-cols-[1.15fr_0.85fr]">
         {/* LEFT — intro */}
@@ -133,7 +87,7 @@ export default function Hero() {
             className="mt-8 flex flex-wrap items-center gap-4"
           >
             <a href="#bounties" className="btn-comic bg-blood text-white">
-              View the bounties
+              See my work
             </a>
             <a href={profile.resumeUrl} target="_blank" rel="noreferrer" className="btn-comic bg-parchment text-ink">
               <DownloadIcon width={18} height={18} /> Résumé
@@ -177,15 +131,9 @@ export default function Hero() {
             <div className="torn relative rounded-sm border-[4px] border-ink bg-parch2 p-4 shadow-comicxl">
               <div className="halftone-gold absolute inset-0 opacity-20" />
               <div className="relative">
-                <p className="text-center font-wanted text-sm font-bold tracking-[0.35em] text-ink/70">
-                  ✶ MARINE ✶
-                </p>
-                <h2 className="section-label text-center text-6xl uppercase leading-none text-ink sm:text-7xl">
-                  Wanted
-                </h2>
-                <p className="-mt-1 text-center font-wanted text-xs font-bold tracking-[0.4em] text-ink/70">
-                  DEAD OR ALIVE
-                </p>
+                <p className="text-center font-wanted text-sm font-bold tracking-[0.35em] text-ink/70">✶ MARINE ✶</p>
+                <h2 className="section-label text-center text-6xl uppercase leading-none text-ink sm:text-7xl">Wanted</h2>
+                <p className="-mt-1 text-center font-wanted text-xs font-bold tracking-[0.4em] text-ink/70">DEAD OR ALIVE</p>
 
                 <div className="relative mx-auto mt-3 aspect-[4/5] w-full overflow-hidden rounded-sm border-[3px] border-ink bg-ink">
                   {photoOk ? (
@@ -202,17 +150,15 @@ export default function Hero() {
                 </div>
 
                 <h3 className="mt-3 text-center font-bangers text-3xl uppercase tracking-wide text-ink">
-                  Dhruv “Dev” Samdani
+                  {profile.name}
                 </h3>
-                <p className="text-center font-wanted text-[11px] uppercase tracking-widest text-ink/70">
-                  {profile.epithet}
+                <p className="text-center font-wanted text-xs font-bold uppercase tracking-[0.3em] text-blood">
+                  {profile.roles[0]}
                 </p>
 
                 <div className="mt-2 border-t-2 border-dashed border-ink/50 pt-2 text-center">
-                  <p className="font-wanted text-[10px] uppercase tracking-[0.3em] text-ink/60">Bounty</p>
-                  <p className="font-bangers text-2xl tracking-wider text-blood" style={{ WebkitTextStroke: '1px #1a1410' }}>
-                    ฿ {bounty.toLocaleString('en-IN')}
-                  </p>
+                  <p className="font-wanted text-[10px] uppercase tracking-[0.3em] text-ink/60">Wanted for</p>
+                  <p className="mt-0.5 text-sm font-bold leading-snug text-ink">{profile.crew}</p>
                 </div>
               </div>
             </div>

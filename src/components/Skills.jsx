@@ -7,7 +7,7 @@ const COLORS = ['gold', 'ocean', 'blood', 'hero', 'gold', 'ocean']
 export default function Skills() {
   return (
     <Section id="powers">
-      <Chapter no="02" kicker="Abilities Unlocked" title="Powers & Haki" color="gold" />
+      <Chapter no="02" kicker="Arsenal" title="Skills & Tech" color="gold" />
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {skills.map((s, i) => {
@@ -23,11 +23,9 @@ export default function Skills() {
               className="group panel-white relative overflow-hidden p-5"
             >
               <div className="halftone absolute inset-0 -z-10 opacity-[0.07]" />
-              <div className="mb-3 flex items-center justify-between">
+              <div className="mb-3 flex items-center gap-2">
+                <span className={`h-4 w-4 shrink-0 rotate-45 border-2 border-ink ${a.bg}`} />
                 <h3 className="font-bangers text-2xl uppercase tracking-wide text-ink">{s.group}</h3>
-                <span className={`rounded-full border-2 border-ink ${a.bg} ${a.text} px-2 py-0.5 font-wanted text-[10px] font-bold uppercase tracking-widest`}>
-                  {s.power}
-                </span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {s.items.map((it) => (

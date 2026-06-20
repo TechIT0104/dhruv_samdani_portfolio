@@ -36,8 +36,8 @@ export const socials = {
 
 export const about = [
   "I'm a B.Tech Information Technology student at IIIT Allahabad (CGPA 8.64), focused on backend engineering, distributed systems, and applied machine learning.",
-  'I like going deep: a NoSQL key-value store in modern C++17, thread-safe REST APIs, and multilingual entity-linking benchmarked across 9 languages.',
-  "Off the keyboard I'm a competitive programmer (LeetCode Knight, rating 1915), a quiz champ, a stage anchor, and — yes — a One Piece & Invincible fan.",
+  'I like going deep on systems — a NoSQL key-value store in modern C++17, thread-safe REST APIs, and multilingual entity-linking benchmarked across 9 languages.',
+  "Outside of building, I'm a competitive programmer (LeetCode Knight, rating 1915) who has led teams at national-level events. And yes — this comic theme is a nod to my love for One Piece & Invincible.",
 ]
 
 export const education = [

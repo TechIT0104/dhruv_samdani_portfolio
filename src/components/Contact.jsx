@@ -6,7 +6,7 @@ import { GitHubIcon, LinkedInIcon, CodeIcon, MailIcon } from './icons'
 export default function Contact() {
   return (
     <Section id="denden">
-      <Chapter no="06" kicker="Final Chapter" title="Send a Den Den Mushi" color="blood" />
+      <Chapter no="06" kicker="Den Den Mushi" title="Get in Touch" color="blood" />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
