@@ -279,6 +279,21 @@ export const stats = [
   { value: '10+', label: 'Projects' },
 ]
 
+export const certifications = [
+  {
+    title: 'OCI AI Foundations Associate',
+    issuer: 'Oracle',
+    image: asset('certs/oci-ai-foundations.jpg'),
+    verifyUrl: null,
+  },
+  {
+    title: 'OCI Foundations Associate',
+    issuer: 'Oracle',
+    image: asset('certs/oci-foundations.jpg'),
+    verifyUrl: null,
+  },
+]
+
 export const gallery = [
   { src: asset('images/gallery/g1.jpg'), caption: 'Speaking at Model UN' },
   { src: asset('images/gallery/g2.jpg'), caption: 'Model UN — in committee' },

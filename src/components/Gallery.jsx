@@ -12,7 +12,7 @@ export default function Gallery() {
 
   return (
     <Section id="log">
-      <Chapter no="05" kicker="The Log Book" title="Beyond the Code" color="gold" />
+      <Chapter no="06" kicker="The Log Book" title="Beyond the Code" color="gold" />
 
       <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
         {gallery.map((g, i) =>

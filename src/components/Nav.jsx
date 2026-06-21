@@ -5,6 +5,7 @@ const LINKS = [
   ['powers', 'Skills'],
   ['bounties', 'Projects'],
   ['claimed', 'Achievements'],
+  ['certs', 'Certs'],
   ['log', 'Gallery'],
   ['denden', 'Contact'],
 ]
