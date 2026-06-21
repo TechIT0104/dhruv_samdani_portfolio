@@ -17,7 +17,7 @@ export const profile = {
     'Competitive Programmer',
   ],
   tagline:
-    'I sail the Grand Line of systems — from a C++ NoSQL engine to multilingual NER pipelines and edge-AI products. I build things that scale and ship.',
+    'I sail the Grand Line of software — a backend & distributed-systems engineer with a strong DSA core and a competitive-programming habit (LeetCode Knight, 1915). From a C++ NoSQL engine to multilingual NER pipelines, I build things that scale and ship.',
   location: 'Prayagraj, Uttar Pradesh, India',
   email: 'dhruv010604@gmail.com',
   altEmail: 'iit2023090@iiita.ac.in',
