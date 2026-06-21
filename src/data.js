@@ -222,7 +222,8 @@ export const achievements = [
     group: 'Competitive Programming',
     items: [
       'LeetCode Knight — rating 1915; 237 / 28,244 in Weekly Contest 455 (top 1%).',
-      'CodeChef — 618 / 18,797 in Starters 193D.',
+      'CodeChef — 3-star, rating 1681; 618 / 18,797 in Starters 193D.',
+      '700+ problems solved across LeetCode, CodeChef and other platforms.',
     ],
   },
   {
@@ -246,8 +247,10 @@ export const achievements = [
   {
     group: 'Leadership',
     items: [
+      'Led the team across multiple hackathons — Tata AI Challenge, Flipkart GRID, Amazon ML Challenge & GPAI.',
       "Overall Coordinator, Effervescence'25 — IIIT-A's annual cultural fest.",
       'Organizing team, TEDxIIITA 2023.',
+      'Represented Madhya Pradesh in the Know Your Country competition by Gandhi Global Family.',
     ],
   },
   {
