@@ -74,16 +74,42 @@ export const skills = [
   {
     group: 'Backend & Systems',
     power: 'Gear',
-    items: ['Node.js', 'Express', 'FastAPI', 'Crow (C++)', 'REST APIs', 'Concurrency', 'OOP / LLD'],
+    items: ['Node.js', 'Express', 'FastAPI', 'Crow (C++)', 'REST APIs', 'Concurrency', 'Lock-free Programming', 'Raft / WAL', 'OOP / LLD'],
   },
   { group: 'CS Fundamentals', power: 'Navigation', items: ['DSA', 'System Design', 'OS', 'Networks', 'DBMS'] },
   { group: 'Databases', power: 'Storage', items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Indexing & Caching'] },
-  { group: 'ML & AI', power: 'Devil Fruit', items: ['PyTorch', 'TensorFlow', 'Scikit-learn', 'XGBoost', 'Hugging Face', 'NLP'] },
+  { group: 'ML & AI', power: 'Devil Fruit', items: ['PyTorch', 'TensorFlow', 'Scikit-learn', 'XGBoost', 'Hugging Face', 'Transformers', 'NLP', 'RL (DQN)'] },
   { group: 'Cloud & DevOps', power: 'Ship', items: ['AWS (EC2/S3/RDS)', 'Docker', 'Kubernetes', 'Kafka', 'CI/CD', 'Linux'] },
 ]
 
 // Projects. group: 'featured' | 'more' | 'hackathon'. `accent`: 'gold'|'ocean'|'blood'|'hero'.
 export const projects = [
+  {
+    title: 'Mini-Exchange',
+    subtitle: 'Fault-Tolerant Low-Latency Matching Engine',
+    stack: ['C++17', 'Lock-free Ring Buffer', 'Raft', 'Write-Ahead Log', 'NASDAQ ITCH/LOBSTER'],
+    points: [
+      'Price-time-priority limit-order book (RB-tree price levels + intrusive FIFO + hash-indexed O(1) cancel); sustains 3.75M orders/sec single-threaded at p50 197ns / p99 685ns (rdtsc percentile benchmarks).',
+      'Zero-allocation, cache-efficient hot path with pre-allocated object pools and a lock-free ring buffer (LMAX Disruptor) — 5.3× over a mutex queue; benchmarked flat-array vs RB-tree for a measured design choice.',
+      'Fault-tolerant: fsync’d, CRC-checked write-ahead log + snapshots for exact crash recovery and Raft leader failover (zero data loss); replays real NASDAQ ITCH 5.0 / LOBSTER feeds (100% top-of-book match, 1.4M events), 42 tests.',
+    ],
+    repo: 'https://github.com/TechIT0104/mini-exchange',
+    accent: 'gold',
+    group: 'featured',
+  },
+  {
+    title: 'ADIBF',
+    subtitle: 'Dual-Intelligence Fraud Detection',
+    stack: ['Python', 'PyTorch', 'FT-Transformer', 'FinBERT', 'Stable-Baselines3 (DQN)', 'XGBoost'],
+    points: [
+      'Fraud-detection system on IEEE-CIS (590K transactions) pairing an FT-Transformer risk model with a FinBERT sentiment module via a learnable sentiment-weighted threshold and a Deep-RL (DQN) decision agent.',
+      'Fully reproducible, leakage-free pipeline (chronological splits, train-only SMOTE/scaling, seeded determinism); benchmarked vs 7 baselines with an ablation study and SHAP explainability.',
+      'Controlled-coupling γ-sweep shows ~26% false-positive-rate reduction with recall preserved; shipped with pytest tests, YAML configs, and a one-click Colab GPU notebook.',
+    ],
+    repo: 'https://github.com/TechIT0104/adibf',
+    accent: 'ocean',
+    group: 'featured',
+  },
   {
     title: 'RetailSense',
     subtitle: 'Privacy-First Vision Retail CRM',
@@ -276,7 +302,7 @@ export const stats = [
   { value: '8.64', label: 'CGPA / 10' },
   { value: '1915', label: 'LeetCode' },
   { value: 'Top 1%', label: 'Contest 455' },
-  { value: '10+', label: 'Projects' },
+  { value: '12+', label: 'Projects' },
 ]
 
 export const certifications = [
