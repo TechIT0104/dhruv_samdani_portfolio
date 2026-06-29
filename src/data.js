@@ -23,7 +23,7 @@ export const profile = {
   altEmail: 'iit2023090@iiita.ac.in',
   phone: '+91 78986 82871',
   photo: asset('images/headshot.jpg'),
-  resumeUrl: asset('Dhruv_Samdani_Resume.pdf'),
+  resumeUrl: 'https://drive.google.com/file/d/1q_rtXMA_3cgEjcm60BvU49LrDaBI70H-/view?usp=sharing',
 }
 
 export const socials = {
